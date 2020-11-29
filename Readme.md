@@ -1,22 +1,14 @@
-# 🐳 Docker + PHP 7.4 + MySQL + Nginx + Symfony 5 Boilerplate
-
-## Description
-
-This is a complete stack for running Symfony 5 into Docker containers using docker-compose tool.
-
-It is composed by 3 containers:
-
-- `nginx`, acting as the webserver.
-- `php`, the PHP-FPM container with the 7.4 PHPversion.
-- `db` which is the MySQL database container with a **MySQL 8.0** image.
-
 ## Installation
 
-1. 😀 Clone this rep.
+1. 😀 Cloner le repo.
 
-2. Run `docker-compose up -d`
+2. Lancer 
 
-3. The 3 containers are deployed: 
+```
+docker-compose up -d
+```
+
+3. Les 3 containers sont lancés: 
 
 ```
 Creating symfony-docker_db_1    ... done
@@ -24,11 +16,25 @@ Creating symfony-docker_php_1   ... done
 Creating symfony-docker_nginx_1 ... done
 ```
 
-4. Use this value for the DATABASE_URL environment variable of Symfony:
+4. Lancer 
+
+```
+docker exec -ti symfony-docker_php_1 bash
+```
+
+5. Taper 
+
+```
+symfony new symfony --version=lts --dir=/var/www/symfony
+```
+
+6. Mettre comme DATABASE_URL dans le .env de Symfony:
 
 ```
 DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=5.7
 ```
 
-You could change the name, user and password of the database in the `env` file at the root of the project.
+7. Symfony accessible sur 127.0.0.1 😀  
+
+(Modifier le username, password et database_name dans le fichier `env` à la racine du repo.)
 
