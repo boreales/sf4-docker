@@ -6,6 +6,7 @@ COPY docker/php/php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 RUN apt-get update && apt-get install -y \
     git \
     zip \
+    libicu-dev \
     unzip
 
 RUN docker-php-ext-install pdo_mysql intl
